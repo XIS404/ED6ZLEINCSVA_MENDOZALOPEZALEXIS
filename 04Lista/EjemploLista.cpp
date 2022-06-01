@@ -38,7 +38,7 @@ struct nodo{
 	//los valores de la lista
 	int valor;
 	nodo *siguiente;
-}
+};
 
 //definir los metodos
 void insertarLista(nodo *&, int);
@@ -74,12 +74,13 @@ int main(){
 			    cout<<"Mostrar los valores de la lista \n";
 			    cout<<"Imprimir valores";
 			    break;
-			default;
+			default:
 			    cout<<"Gracias por mimir aqui uwu";
 	    }
 	}
+	return 0;
 }
-return 0;
+
 
 void insertarLista(nodo *&lista, int c){
 	//crear una nueva lista
@@ -91,6 +92,18 @@ void insertarLista(nodo *&lista, int c){
 	nodo * aux = lista;
 	nodo * aux2;
 	//meter los valores de forma ordenada
+	while((aux!=NULL) && (aux->valor < c)){
+		aux2 = aux;
+		aux = aux->siguiente;
+	}
+	if(inslista==aux){
+		lista = inslista;
+	}else{
+		aux2->siguiente = inslista;
+	}
+	
+	inslista -> siguiente = aux;
+	cout<<"Elemento "<<c<<"Insertado"<<endl;
 }
 
 
